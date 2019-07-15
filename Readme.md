@@ -48,6 +48,31 @@ The URL should always be the series you're searching in question.  If you sort b
 
 If you wish to see the script in action, change the csv to contain the title of a book already released, then run the script again.  You should see a popup telling you that a book has been released.
 
+### Setting it to run automatically
+
+Again, if you're like me, you want to automate this.
+As such, I've made this a Scheduled Task to do this every time I unlock my computer.
+As opposed to walking you completely through creating a scheduled task, I'll give a basic overview, and then give you the snippet that makes it work for the powershell script.
+
+Creating A Scheduled Task
+```
+Start Task Scheduler from the start Menu
+Select the Task Scheduler Library in the left nav pane
+Select Action > Create Task... (not Create Basic Task...) from the menu bar
+In the new Create Task window, select the Triggers tab
+Click on the New... button
+In the "Begin the task:" drop down, select "At log on" or "On workstation unlock"
+```
+For the Actions, you want to select "Start a program"
+Then type: Powershell.exe
+![Task Action](https://github.com/burn56/Audible/blob/master/readme-assets/edit-action.PNG)
+
+The arguments are:
+```
+-windowstyle hidden -ExecutionPolicy Bypass C:\Users\%username%\Documents\Check-For-New-Book.ps1
+```
+Be sure to link to the actual location of the file!
+
 ### TODO
 
 My Laundry list of todo items;
