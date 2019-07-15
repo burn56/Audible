@@ -94,3 +94,5 @@ Or if you have a different csv to search (Like a spouse's or a kid's Audible ser
 
 * **Matt Urbano** - [burn56](https://github.com/burn56)
 
+### Shout Outs
+* **Mike Gray** - [MikeJGray](https://github.com/mikejgray) Thanks for all the code review and talking it all over!
