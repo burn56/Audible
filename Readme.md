@@ -85,7 +85,9 @@ My Laundry list of todo items;
 
 ### Advanced Options
 ```
-Adding the switch: -Location , then followed by either a URL or another install location, allows you to host your csv in the web (so long as it's publicly accessible), or have a different csv to search (Like a wife's or a kid's Audible series)
+Adding the switch: -Location to the run line of the script
+followed by either a URL or another install location, allows you to host your csv in the web (so long as it's publicly accessible)
+Or if you have a different csv to search (Like a spouse's or a kid's Audible series)
 ```
 
 ## Authors
