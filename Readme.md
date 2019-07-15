@@ -10,7 +10,7 @@ These instructions will get you started on running the webscraper on your very o
 
 ### Prerequisites
 
-You will need at least Powershell V4.0.  As we're using Invoke-WebRequest, you'll need to ensure you're atleast running Powershell 4.0.  This is provided in the .NET 4.0 Package, so please, update before trying!
+You will need at least Powershell V4.0.  As we're using Invoke-WebRequest, you'll need to ensure you're at least running Powershell 4.0.  This is provided in the .NET 4.0 Package, so please, update before trying!
 
 ### Installing
 
@@ -24,7 +24,7 @@ There is no location restriction for the powershell script, and as such, it can 
 ```
 2. Download the Audible-search.csv to: c:\users\%username%\documents\
 ```
-The %username% should be your windows username.  The ps1 file will look for it in this specific locaiton, so if you're going to change the location it is saved, please change the coresponding line of code.
+The %username% should be your windows username.  The ps1 file will look for it in this specific location, so if you're going to change the location it is saved, please change the coresponding line of code.
 
 
 ## Running the Script
@@ -54,7 +54,7 @@ Again, if you're like me, you want to automate this.
 As such, I've made this a Scheduled Task to do this every time I unlock my computer.
 As opposed to walking you completely through creating a scheduled task, I'll give a basic overview, and then give you the snippet that makes it work for the powershell script.
 
-Creating A Scheduled Task
+#### Creating A Scheduled Task
 ```
 Start Task Scheduler from the start Menu
 Select the Task Scheduler Library in the left nav pane
