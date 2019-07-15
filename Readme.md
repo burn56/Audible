@@ -83,6 +83,11 @@ My Laundry list of todo items;
 * Option to add book to cart?
 ```
 
+### Advanced Options
+```
+Adding the switch: -Location , then followed by either a URL or another install location, allows you to host your csv in the web (so long as it's publicly accessible), or have a different csv to search (Like a wife's or a kid's Audible series)
+```
+
 ## Authors
 
 * **Matt Urbano** - [burn56](https://github.com/burn56)
