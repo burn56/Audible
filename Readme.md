@@ -14,7 +14,7 @@ You will need at least Powershell V4.0.  As we're using Invoke-WebRequest, you'l
 
 ### Installing
 
-So there are 3 main parts to getting this functioning for you.
+So there are 2 main parts to getting this functioning for you.
 
 ```
 1. Download the check-for-newbook.ps1 and save it to c:\scripts
@@ -25,6 +25,7 @@ There is no location restriction for the powershell script, and as such, it can 
 2. Download the Audible-search.csv to: c:\users\%username%\documents\
 ```
 The %username% should be your windows username.  The ps1 file will look for it in this specific locaiton, so if you're going to change the location it is saved, please change the coresponding line of code.
+	__For the purpose of showing a proof of concept, I added one automatic success at the time of writing: *Ready Player One*	__
 
 
 ## Running the Script
@@ -56,12 +57,12 @@ As opposed to walking you completely through creating a scheduled task, I'll giv
 
 Creating A Scheduled Task
 ```
-Start Task Scheduler from the start Menu
-Select the Task Scheduler Library in the left nav pane
-Select Action > Create Task... (not Create Basic Task...) from the menu bar
-In the new Create Task window, select the Triggers tab
-Click on the New... button
-In the "Begin the task:" drop down, select "At log on" or "On workstation unlock"
+* Start Task Scheduler from the start Menu
+* Select the Task Scheduler Library in the left nav pane
+* Select Action > Create Task... (not Create Basic Task...) from the menu bar
+* In the new Create Task window, select the Triggers tab
+* Click on the New... button
+* In the "Begin the task:" drop down, select "At log on" or "On workstation unlock"
 ```
 For the Actions, you want to select "Start a program"
 Then type: Powershell.exe
@@ -77,9 +78,9 @@ Be sure to link to the actual location of the file!
 
 My Laundry list of todo items;
 ```
-Read from wishlist
-Enable Deletion of CSV upon prompting user that there is a new book (option to delete)
-Option to add book to cart?
+* Read from wishlist
+* Enable Deletion of CSV upon prompting user that there is a new book (option to delete)
+* Option to add book to cart?
 ```
 
 ## Authors
