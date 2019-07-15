@@ -25,7 +25,7 @@ There is no location restriction for the powershell script, and as such, it can 
 2. Download the Audible-search.csv to: c:\users\%username%\documents\
 ```
 The %username% should be your windows username.  The ps1 file will look for it in this specific locaiton, so if you're going to change the location it is saved, please change the coresponding line of code.
-	__For the purpose of showing a proof of concept, I added one automatic success at the time of writing: *Ready Player One*	__
+__For the purpose of showing a proof of concept, I added one automatic success at the time of writing:__ *Ready Player One*	
 
 
 ## Running the Script
