@@ -28,7 +28,7 @@ if($Location)
    }
 else
 {
-   $csv = import-csv "c:\users\murbano\documents\audible-search.csv"
+   $csv = import-csv "c:\users\%username%\documents\audible-search.csv"
 }
 $csv | ForEach-Object {
     $Title = $_.Title
