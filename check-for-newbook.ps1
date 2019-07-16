@@ -8,31 +8,33 @@ Add-Type –assemblyName PresentationFramework
 Add-Type –AssemblyName PresentationCore
 Add-Type –AssemblyName WindowsBase
 
-if ($Location -eq $null){
-$csv = import-csv "c:\users\%username%\documents\audible-search.csv"
-}
-if ($Location -match ("http")) #check to see if $Location is a url
-{
-#Download the csv file
-$tempLocation = "c:\temp\temp-audible-search.csv"
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest $Location -OutFile $tempLocation
-$csv = import-csv $tempLocation
-Remove-Item $tempLocation
-}
+if ($Location -eq $null)
+   {
+    $csv = import-csv "c:\users\%username%\documents\audible-search.csv"
+   }
+#check to see if $Location is a url
+if ($Location -match ("http")) 
+   {
+    #Download the csv file
+    $tempLocation = "c:\temp\temp-audible-search.csv"
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Invoke-WebRequest $Location -OutFile $tempLocation
+    $csv = import-csv $tempLocation
+    Remove-Item $tempLocation
+   }
 else
-{
-$csv = import-csv $Location
-}
+   {
+    $csv = import-csv $Location
+   }
 
-$csv | ForEach-Object {
-$Title = $_.Title
-$Url = $_.Url
-#"Searching for $Title"
-$BookCheck = Invoke-WebRequest -Uri $Url -UseBasicParsing
-$CheckBookExists = $BookCheck.Content.Contains("$Title")
-if ($CheckBookExists -eq "True"){
-
-[System.Windows.MessageBox]::Show('New Book Released: '+$Title,'New Book!')
-    }
-}
+$csv | ForEach-Object 
+   {
+    $Title = $_.Title
+    $Url = $_.Url
+    $BookCheck = Invoke-WebRequest -Uri $Url -UseBasicParsing
+    $CheckBookExists = $BookCheck.Content.Contains("$Title")
+    if ($CheckBookExists -eq "True")
+        {
+         [System.Windows.MessageBox]::Show('New Book Released: '+$Title,'New Book!')
+        }
+   }
