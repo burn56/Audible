@@ -81,14 +81,11 @@ My Laundry list of todo items;
 * Read from wishlist
 * Enable Deletion of CSV upon prompting user that there is a new book (option to delete)
 * Option to add book to cart?
+* Adding the switch: -Location to the run line of the script
 ```
 
 ### Advanced Options
-```
-Adding the switch: -Location to the run line of the script
-followed by either a URL or another install location, allows you to host your csv in the web (so long as it's publicly accessible)
-Or if you have a different csv to search (Like a spouse's or a kid's Audible series)
-```
+
 
 ## Authors
 
