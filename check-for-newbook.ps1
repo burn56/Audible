@@ -1,11 +1,36 @@
+#Allow for a custom -Location to be set
+[cmdletbinding()]
+Param (
+[Parameter(Mandatory=$False)][String]$Location
+)
 #This is what allows us to make popups outside of ISE
 Add-Type –assemblyName PresentationFramework
 Add-Type –AssemblyName PresentationCore
 Add-Type –AssemblyName WindowsBase
 
-$csv = import-csv "c:\users\%username%\documents\audible-search.csv"
-$csv | ForEach-Object 
+if($Location)
    {
+    #check to see if $Location is a url
+    if ($Location -match ("http")) 
+       {
+        #Download the csv file
+        $tempLocation = "c:\temp\temp-audible-search.csv"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest $Location -OutFile $tempLocation
+        $csv = import-csv $tempLocation
+        Remove-Item $tempLocation
+       }
+   
+    else
+       {
+        $csv = import-csv $Location
+       }
+   }
+else
+{
+   $csv = import-csv "c:\users\murbano\documents\audible-search.csv"
+}
+$csv | ForEach-Object {
     $Title = $_.Title
     $Url = $_.Url
     $BookCheck = Invoke-WebRequest -Uri $Url -UseBasicParsing
