@@ -15,7 +15,7 @@ if($Location)
        {
         #Download the csv file
         $tempLocation = "c:\temp\temp-audible-search.csv"
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $Location -OutFile $tempLocation
         $csv = import-csv $tempLocation
         Remove-Item $tempLocation
@@ -28,7 +28,6 @@ if($Location)
    }
 else
 {
-   write-host "CSV Default Location" #testing only - TO BE REMOVED
    $csv = import-csv "c:\users\murbano\documents\audible-search.csv"
 }
 $csv | ForEach-Object {
