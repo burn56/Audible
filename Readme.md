@@ -79,10 +79,12 @@ Be sure to link to the actual location of the file!
 My Laundry list of todo items;
 ```
 * Read from wishlist
-* Enable Deletion of CSV upon prompting user that there is a new book (option to delete)
 * Option to add book to cart?
 ```
-
+#### Features Added
+```
+Enabled Deletion of CSV entry upon prompting user that there is a new book (option to delete)
+```
 ### Advanced Options
 ```
 Adding the switch: -Location to the run line of the script
