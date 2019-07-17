@@ -19,16 +19,20 @@ if($Location)
         Invoke-WebRequest $Location -OutFile $tempLocation
         $csv = import-csv $tempLocation
         Remove-Item $tempLocation
+        $csvLocation = “Web”
        }
    
     else
        {
         $csv = import-csv $Location
+        $csvLocation = $Location
        }
    }
 else
 {
-   $csv = import-csv "c:\users\%username%\documents\audible-search.csv"
+   $csv = import-csv "c:\users\%username%\documents\audible-search"
+   $csvLocation =  "c:\users\%username%\documents\audible-search"
+
 }
 $csv | ForEach-Object {
     $Title = $_.Title
@@ -37,6 +41,20 @@ $csv | ForEach-Object {
     $CheckBookExists = $BookCheck.Content.Contains("$Title")
     if ($CheckBookExists -eq "True")
         {
-         [System.Windows.MessageBox]::Show('New Book Released: '+$Title,'New Book!')
-        }
+          if ($csvLocation -eq “Web”){
+          [System.Windows.MessageBox]::Show('New Book Released: '+$Title,'New Book!')
+              }
+          else{
+               $UserResponse= [System.Windows.Forms.MessageBox]::Show('New Book Released: '+$Title,'New Book!', "Status" , 4)
+               if ($UserResponse -eq "YES" ) 
+                   {
+                    import-csv $csvLocation |
+                    where name -NotLike "*$Url*" |
+                    export-csv $csvLocation -NoTypeInformation
+                   } 
+               else 
+                   { 
+                     #No activity
+                   }
+              }
    }
