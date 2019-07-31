@@ -30,7 +30,7 @@ if($Location)
    }
 else
 {
-   $csv = import-csv "c:\users\$username%\documents\audible-search.csv"
+   $csv = import-csv "c:\users\%username%\documents\audible-search.csv"
    $csvLocation =  "c:\users\%username%\documents\audible-search.csv"
 
 }
@@ -49,7 +49,7 @@ $csv | ForEach-Object {
                if ($UserResponse -eq "YES" ) 
                    {
                     import-csv $csvLocation |
-                    where Url -NotLike "$Url" | export-csv "c:\users\Administrator\documents\audible-search.csv" -NoTypeInformation
+                    where Url -NotLike "$Url" | export-csv "c:\users\%username%\documents\audible-search.csv" -NoTypeInformation
                    } 
                else 
                    { 
