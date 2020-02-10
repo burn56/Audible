@@ -29,6 +29,7 @@ if($Location)
    }
 else
 {
+   #change these for yourself
    $csv = import-csv "c:\users\murbano\documents\audible-search.csv"
    $csvLocation =  "c:\users\murbano\documents\audible-search.csv"
 
@@ -48,6 +49,7 @@ $csv | ForEach-Object {
                $UserResponse= [System.Windows.Forms.MessageBox]::Show(“New Book Released: “+$Title+”`nWould You Like To Delete The Entry?”,'New Book!', "YesNo")
                if ($UserResponse -eq "YES" ) 
                    {
+                    #change location to variable
                     import-csv $csvLocation | where Url -NotLike "$Url" | export-csv "c:\users\murbano\documents\audible-search.csv" -NoTypeInformation
                    } 
                else 
